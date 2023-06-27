@@ -28,7 +28,7 @@ export default async function getObjetos(req, res){
         }
     }else if(req.method === "PUT"){
         const updateObjects = await db.prepare(
-            "UPDATE objetos SET ('objeto','tipo','peso','valor','cantidad','id_inventario') = (?, ?, ?, ?, ?, ?) WHERE id_objeto = ?"
+            "UPDATE objetos SET objeto = ?, tipo = ?, peso = ?, valor = ?, cantidad = ? WHERE id_objeto = ? WHERE id_objeto = ?"
         );
         try{
             const response = await updateObjects.run(
@@ -58,3 +58,4 @@ export default async function getObjetos(req, res){
         res.json("no data found");
     }
 }
+

@@ -39,16 +39,6 @@ export default async function getInventarios(req, res){
         }catch(error){
             res.json(error,"no data is inserted");
         }
-    }else if(req.method === "DELETE"){
-        const deleteInventories = await db.prepare(
-            "DELETE FROM inventarios WHERE id_inventario = ?"
-        );
-        try{
-            const response = await deleteInventories.run(req.body.id_inventario);
-            await response.finalize(response);
-        }catch(error){
-            res.json(error,"no data is deleted");
-        }
     }else{
         res.json("no data found");
     }
