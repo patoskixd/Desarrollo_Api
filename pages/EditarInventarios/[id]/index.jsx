@@ -131,8 +131,7 @@ const handlerDeleteObjects = async(idObjeto, tipoInventario)=>{
                 </div>
                 <div id="forminv">
                   <ul id="listainv">
-                    <li><button id="boton1" >Agregar</button></li>
-                    <li><button id="boton2">+</button></li>
+                    <li><button id="boton1" type="submit">Guardar</button></li>
                   </ul>
                 </div>
             </form>
@@ -176,8 +175,7 @@ const handlerDeleteObjects = async(idObjeto, tipoInventario)=>{
                 </div>
                 <div id="forminv">
                   <ul id="listainv">
-                    <li><button id="boton1" >Agregar</button></li>
-                    <li><button id="boton2">+</button></li>
+                    <li><button id="boton1" type="submit">Guardar</button></li>
                   </ul>
                 </div>
             </form>
