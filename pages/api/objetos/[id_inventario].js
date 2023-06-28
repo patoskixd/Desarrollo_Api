@@ -26,24 +26,6 @@ export default async function getObjetos(req, res){
         }catch(error){
             res.json(error,"no data is inserted");
         }
-    }else if(req.method === "PUT"){
-        const updateObjects = await db.prepare(
-            "UPDATE objetos SET objeto = ?, tipo = ?, peso = ?, valor = ?, cantidad = ? WHERE id_objeto = ? WHERE id_objeto = ?"
-        );
-        try{
-            const response = await updateObjects.run(
-                req.body.objeto,
-                req.body.tipo,
-                req.body.peso,
-                req.body.valor,
-                req.body.cantidad,
-                req.query.id_inventario,
-                req.body.id_objeto
-            );
-            await response.finalize();
-        }catch(error){
-            res.json(error,"no data is inserted");
-        }
     }else if(req.method === "DELETE"){
         const deleteObjects = await db.prepare(
             "DELETE FROM objetos WHERE id_objeto = ?"

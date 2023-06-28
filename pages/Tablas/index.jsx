@@ -8,6 +8,10 @@ export default function tablas({ tabla }) {
   const [inventarios, setInventarios] = useState(tabla); // Define the state for inventarios
 
   const handleDelete = async (idInventario) => {
+    const confirmed = window.confirm("¿Estás seguro de que quieres eliminar este inventario?");
+    if (!confirmed) {
+    return;
+    }else{
     try {
 
       await axios.delete(`http://localhost:3000/api/inventarios/${idInventario}`);
@@ -19,9 +23,6 @@ export default function tablas({ tabla }) {
     } catch (error) {
       console.error("Deleting inventory failed:", error);
     }
-  };
-
-  const handleDeleteObject = async (idInventario,tipo_inventario) =>{
     try{
       if(tipo_inventario === 0){
         await axios.delete(`http://localhost:3000/api/deleteAllObjects/${idInventario}`)
@@ -32,6 +33,8 @@ export default function tablas({ tabla }) {
       console.error("Deleting objects failed:", error)
     }
   }
+  };
+
 
   return (
     <div>
@@ -73,7 +76,7 @@ export default function tablas({ tabla }) {
                   </button>
                 </td>
                 <td>
-                  <button id="boton3" onClick={() => [handleDelete(row.id_inventario),handleDeleteObject(row.id_inventario,row.tipo_inventario)]}>
+                  <button id="boton3" onClick={() => handleDelete(row.id_inventario,row.tipo_inventario)}>
                     Eliminar
                   </button>
                 </td>

@@ -72,12 +72,12 @@ a {
   background-color: #5687A8;
 }
 #table thead tr th{
-  font-size: 125%;
+  font-size: 100%;
   font-weight: 150%;
-  letter-spacing: 0.35px;
+
   color: black;
   opacity: 1;
-  padding: 0.8%;
+  padding: 1%;
   vertical-align: top;
   border: 1px solid wheat;
 }
@@ -91,6 +91,17 @@ a {
   text-align: center;
   border: 1px solid wheat;
 }
+
+#table tbody tr td input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  font-size: 100%;
+  color: black;
+  background-color: #8A8A8A;
+  border: 1px solid wheat;
+}
+
 
  #containers {
   width: 75%;
